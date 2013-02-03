@@ -1,0 +1,25 @@
+{"video":
+			[{"videoNamePerson":"CCTV",
+						"videos":[  
+									 {"title":"CCTV-3（广东联通）","url":"rtsp://l.m.cztv.com:554/cctv3/live_ld","image":""}
+									 ,{"title":"CCTV-2(高速通道)","url":"http://cntv.itv.doplive.com.cn/live592/index_128k.m3u8","image":"http://i0597.com/cntv/images/cctv2.gif","flags":"6"}
+									 ,{"title":"CCTV-3(高速通道)","url":"http://cntv.itv.doplive.com.cn/live593/index_128k.m3u8","image":"http://i0597.com/cntv/images/cctv3.gif","flags":"6"}
+									 ,{"title":"CCTV-4(高速通道)","url":"http://cntv.itv.doplive.com.cn/live594/index_128k.m3u8","image":"http://i0597.com/cntv/images/cctv4.gif","flags":"6"}
+									 ,{"title":"CCTV-5（广东联通）","url":"rtsp://l.m.cztv.com:554/cctv5/live_ld","image":""}
+									 ,{"title":"CCTV-8（广东联通）","url":"rtsp://l.m.cztv.com:554/cctv8/live_ld","image":""}
+									 ,{"title":"CCTV-1（广东电信）","url":"rtsp://113.108.220.53:1935/live/cctv1.sdp","image":""}
+									 ,{"title":"CCTV-2（广东电信）","url":"rtsp://113.108.220.53:1935/live/cctv2.sdp","image":""}
+									 ,{"title":"CCTV-4（广东电信）","url":"rtsp://113.108.220.53:1935/live/cctv4.sdp","image":""}
+									 ,{"title":"CCTV-13（广东电信）","url":"rtsp://113.108.220.53:1935/live/cctv13.sdp","image":""}
+									 ,{"title":"浙江卫视","url":"http://cms.doplive.com.cn/live347/index_multi.m3u8?date=20120302220001&uid=0&rnd=2012030222000185729&deviceid=123&key=c6f812e83b541dbde2d1d2497f73bec3&count=1330675970","image":""}
+									 ,{"title":"深圳卫视","url":"http://play.api.pptv.com/m3u8-300188.m3u8?key=yGlm39KjK3MDhfB5to89Hc2eeMv4rKbk","image":""}
+									 ,{"title":"四川卫视","url":"http://play.api.pptv.com/m3u8-300177.m3u8?key=yGlm39KjK3MDhfB5to89Hc2eeMv4rKbk","image":""}
+									 ,{"title":"CCTV-13新闻","url":"rtsp://113.108.220.53:1935/live/cctv13.sdp","image":""}
+									 ,{"title":"江苏综艺","url":"rtsp://122.192.35.80:554/live/tv03","image":""}
+									 ,{"title":"绍关综合","url":"rtsp://113.108.220.53/tv/sgws.sdp","image":""} 
+									 ,{"title":"自定义","url":"rtp://192.168.0.112:5/1","image":""} 
+								] 
+	
+			}
+			]
+	}
