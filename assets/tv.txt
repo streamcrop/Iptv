@@ -422,7 +422,7 @@
 												 ,{"title":"68 Street Groove","url":"rtsp://217.146.95.166:554/live/ch68yqvga.3gp","image":""}  
 												 ,{"title":"69 4 music","url":"rtsp://217.146.95.166:554/live/ch69yqvga.3gp","image":""} 
 												 ,{"title":"70 VIVA music","url":"rtsp://217.146.95.166:554/live/ch70yqvga.3gp","image":""}  
-												 ,{"title":"71 Models TV","url":"rtsp://217.146.95.166:554/live/ch71yqvga.3gp","image":""} 
+												 ,{"title":"71 Models TV","url":"http://cntv.itv.doplive.com.cn/live595/index_128k.m3u8","image":""} 
 								
 								] 
 				

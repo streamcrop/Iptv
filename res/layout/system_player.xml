@@ -9,13 +9,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerInParent="true" />
-	<ListView 
-	    android:id="@+id/lv_system_player"
-	    android:layout_width="180dip"
-	    android:layout_height="match_parent"
-	    android:visibility="gone"
-	    android:listSelector="@android:color/transparent"
-	    android:divider="@android:color/transparent"
-	    android:dividerHeight="5dip"
-	    />
+
+   <include layout="@layout/channel_listview"/>
 </RelativeLayout>

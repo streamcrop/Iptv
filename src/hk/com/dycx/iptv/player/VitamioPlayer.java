@@ -2,6 +2,7 @@ package hk.com.dycx.iptv.player;
 
 import android.net.Uri;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.MediaPlayer.OnCompletionListener;
@@ -102,11 +103,6 @@ public class VitamioPlayer extends BasePlayer {
 		});
 	}
 
-	@Override
-	protected ListView findListView() {
-		
-		return (ListView) findViewById(R.id.lv_vitamio_player);
-	}
 
 	@Override
 	public void exit() {

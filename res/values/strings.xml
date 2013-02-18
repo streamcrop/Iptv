@@ -16,9 +16,14 @@
     <string name="error">无法播放</string>
     <string name="load_next_channel">正在加载下一个节目</string>
     <string name="load_pre_channel">正在加载上一个节目</string>
-    <string name="load_channel">正在加载节目</string>
+    <string name="load_channel">"正在加载节目: "</string>
     <string name="select_channel_palying_now">您选择的节目正在播放</string>
     <string name="init_decoders">正在进行第一次解压解码包...</string>
     <string name="net_not_work">网络不可用，请检查网络!</string>
-    <string name="error_path">无法播放，确认播放地址是否可用</string>
+    <string name="error_path">无法播放!</string>
+    <string name="pre_page">上一页</string>
+    <string name="next_page">下一页</string>
+    <string name="first_page">当前己经是第一页</string>
+    <string name="last_page">当前己经是最后一页</string>
+    
 </resources>

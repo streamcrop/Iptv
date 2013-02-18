@@ -8,6 +8,7 @@ import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
 import hk.com.dycx.iptv.R;
@@ -122,11 +123,6 @@ public class SystemPlayer extends BasePlayer {
 		else
 			mVideoView.setVideoPath(path);
 		Logger.i(TAG, isDebug, "zzzzzzzzzUri:" + Uri.parse(path));
-	}
-
-	@Override
-	protected ListView findListView() {
-		return (ListView) findViewById(R.id.lv_system_player);
 	}
 	
 	@Override

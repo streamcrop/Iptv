@@ -26,7 +26,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -35,7 +38,7 @@ import android.widget.VideoView;
  * @date 2013-1-31 下午7:07:49
  * @version 1.0
  */
-public abstract class BasePlayer extends Activity {
+public abstract class BasePlayer extends Activity implements android.view.View.OnClickListener {
 	protected static final String TAG = "BasePlayer";
 	protected static final boolean isDebug = true;
 	protected static final int SHOW_CHANNEL_LOADING = 0;
@@ -47,14 +50,18 @@ public abstract class BasePlayer extends Activity {
 	
 	private VideoInfoAdapter mVideoInfoAdapter;
 	
-	/** 显示当前播放列表 */
-	private ListView lv_system_player;
+	/** 显示当前播放列表和上下页按钮 */
+	private RelativeLayout mListviewPanel;
+	
+	/** 当前播放列表 */
+	private ListView lv_play_list;
 	
 	/** 当前播放节目列表 */
 	protected ArrayList<VideoInfo> mPlayList;
 	
 	/** 当前播放节目 */
-	protected int mPosition;
+	public int mPosition;
+	
 	
 	protected ProgressDialog mProgressDialog;
 	protected Handler mHandler = new Handler(){
@@ -82,6 +89,8 @@ public abstract class BasePlayer extends Activity {
 			}
 		};
 	};
+	private Button btn_list_pre;
+	private Button btn_list_next;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -112,8 +121,12 @@ public abstract class BasePlayer extends Activity {
 	
 	private void initView() {
 		findVideoView();
-		lv_system_player = findListView();
-		Logger.i(TAG, isDebug, "lv_system_player:"+lv_system_player.getId());
+		mListviewPanel = (RelativeLayout) findViewById(R.id.rl_list);
+		lv_play_list = (ListView) mListviewPanel.findViewById(R.id.lv_play);
+		btn_list_pre = (Button) mListviewPanel.findViewById(R.id.btn_list_pre);
+		btn_list_next = (Button) mListviewPanel.findViewById(R.id.btn_list_next);
+		btn_list_pre.setOnClickListener(this);
+		btn_list_next.setOnClickListener(this);
 		mProgressDialog = new ProgressDialog(BasePlayer.this, ProgressDialog.STYLE_HORIZONTAL);
 		mProgressDialog.setCanceledOnTouchOutside(false);
 		mProgressDialog.setOnKeyListener(new OnKeyListener() {
@@ -128,10 +141,11 @@ public abstract class BasePlayer extends Activity {
 	private void startPlay() {
 		if (mPlayList != null && mPosition > 0 && mPlayList.size() > mPosition) {
 			Message preMessage = Message.obtain();
-			preMessage.obj = getString(R.string.load_channel);
+			preMessage.obj = getString(R.string.load_channel) + mPlayList.get(mPosition).getName();
 			preMessage.what = SHOW_CHANNEL_LOADING;
 			mHandler.sendMessage(preMessage);
-			
+			//设置当前播放节目为高亮显示
+			mVideoInfoAdapter.setPlayPosition(mPosition);
 			String path = mPlayList.get(mPosition).getUrl();
 			if (path != null && !path.isEmpty()) {
 				setVideoURI(path);
@@ -147,13 +161,15 @@ public abstract class BasePlayer extends Activity {
 			mPlayList = (ArrayList<VideoInfo>) intent.getSerializableExtra("MediaIdList");
 			mPosition = intent.getIntExtra("CurrentPosInMediaIdList", 0);
 			if (mPlayList != null) {
-				mVideoInfoAdapter = new VideoInfoAdapter(getApplicationContext(), mPlayList, R.layout.channel_item);
-				lv_system_player.setAdapter(mVideoInfoAdapter);
-				lv_system_player.setOnItemClickListener(new OnItemClickListener() {
+				mVideoInfoAdapter = new VideoInfoAdapter(getApplicationContext(), mPlayList, R.layout.channel_item, 15);
+				lv_play_list.setAdapter(mVideoInfoAdapter);
+				lv_play_list.setOnItemClickListener(new OnItemClickListener() {
 					@Override
 					public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-						if (mPosition != position) {
-							mPosition = position;
+						int pageIndex = mVideoInfoAdapter.getPageIndex();
+						int currentPosition = ( (pageIndex -1) * mVideoInfoAdapter.mPageCount) + position;
+						if (mPosition != currentPosition) {
+							mPosition = currentPosition;
 							startPlay();
 							mHandler.sendEmptyMessage(HIDE_CHANNELS);
 						}else {
@@ -196,24 +212,24 @@ public abstract class BasePlayer extends Activity {
 	}
 
 	private void showChannel() {
-		if (lv_system_player != null && lv_system_player.getVisibility() != View.VISIBLE) {
+		if (mListviewPanel != null) {
 			Logger.i(TAG, isDebug, "显示列表");
-			lv_system_player.setVisibility(View.VISIBLE);
+			mListviewPanel.setVisibility(View.VISIBLE);
 			mHandler.removeMessages(HIDE_CHANNELS);
-			mHandler.sendEmptyMessageDelayed(HIDE_CHANNELS, 5000);
-			Logger.i(TAG, isDebug, "sendEmptyMessageDelayed(HIDE_CHANNELS, 5000)");
+			mHandler.sendEmptyMessageDelayed(HIDE_CHANNELS, 6000);
+			Logger.i(TAG, isDebug, "sendEmptyMessageDelayed(HIDE_CHANNELS, 7000)");
 		}
 	}
 	
 	private void hideChannel(){
-		if (lv_system_player != null && lv_system_player.getVisibility() == View.VISIBLE) {
+		if (mListviewPanel != null && mListviewPanel.getVisibility() == View.VISIBLE) {
 			Logger.i(TAG, isDebug, "隐藏列表");
-			lv_system_player.setVisibility(View.GONE);
+			mListviewPanel.setVisibility(View.GONE);
 		}
 	}
 	
 	private void showAndHideChannel(){
-		if (lv_system_player != null && lv_system_player.getVisibility() != View.VISIBLE) {
+		if (mListviewPanel != null && mListviewPanel.getVisibility() != View.VISIBLE) {
 			showChannel();
 		}else {
 			hideChannel();
@@ -229,6 +245,21 @@ public abstract class BasePlayer extends Activity {
 
 		}
 		return super.onTouchEvent(event);
+	}
+	
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btn_list_pre:
+			mVideoInfoAdapter.setPrePage();
+			showChannel();
+			break;
+		case R.id.btn_list_next:
+			mVideoInfoAdapter.setNextPage();
+			showChannel();
+			break;
+		}
 	}
 	
 	/**
@@ -314,9 +345,6 @@ public abstract class BasePlayer extends Activity {
 	
 	/** 获得播放器 */
 	public abstract void findVideoView();
-	
-	/** 获得ListView */
-	protected abstract ListView findListView();
 	
 	/** 设置播放路径 */
 	public abstract void setVideoURI(String path);

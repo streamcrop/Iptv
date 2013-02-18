@@ -5,13 +5,34 @@
 
 	<GridView
 	    android:id="@+id/gv_main"
+	    android:layout_marginTop="60dip"
 	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
+	    android:layout_height="530dip"
 	    android:numColumns="4"
-	    android:horizontalSpacing="130dip"
-	    android:verticalSpacing="50dip"
 	    android:listSelector="@android:color/transparent"
+	    android:horizontalSpacing="100dip"
+	    android:verticalSpacing="60dip"
 	    android:layout_marginLeft="120dip"
 	    android:layout_marginRight="120dip"
 	    />
+	<Button 
+	    android:id="@+id/btn_main_next"
+	    android:layout_below="@id/gv_main"
+	    android:layout_marginTop="30dip"
+	    android:layout_marginRight="120dip"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/next_page"
+	    android:layout_alignParentRight="true"
+	    />
+	<Button 
+	    android:id="@+id/btn_main_pre"
+	    android:layout_alignTop="@+id/btn_main_next"
+	    android:layout_toLeftOf="@id/btn_main_next"
+	    android:layout_marginRight="30dip"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/pre_page"
+	    />
+	
 </RelativeLayout>
