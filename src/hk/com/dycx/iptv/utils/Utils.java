@@ -1,6 +1,8 @@
 package hk.com.dycx.iptv.utils;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,6 +11,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Environment;
 
 /**
  * @author zhangping e-mail:zp@dycx.com.hk
@@ -16,11 +19,21 @@ import android.net.NetworkInfo;
  * @version 1.0
  */
 public class Utils {
+	private static final String TAG = "Utils";
+	private static final boolean isDebug = true;
 	public static String readAssetsToString(Activity context,String assetsFileName) {
 		InputStream is = null;
 		String temStr = null;
 		try {
-			is = context.getAssets().open(assetsFileName);
+			File sdTvFile = new File(Environment.getExternalStorageDirectory() + "/" + assetsFileName);
+			if (sdTvFile.exists()) {
+				is = new FileInputStream(sdTvFile);
+				Logger.i(TAG, isDebug, "sd card 可用");
+			}
+			if (is == null) {
+				is = context.getAssets().open(assetsFileName);
+				Logger.i(TAG, isDebug, "context.getAssets().open(assetsFileName);");
+			}
 			
 			if (is != null) {
 	               StringBuilder sb = new StringBuilder();

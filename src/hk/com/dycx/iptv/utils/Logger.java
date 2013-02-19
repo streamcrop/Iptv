@@ -6,7 +6,7 @@ package hk.com.dycx.iptv.utils;
 import android.util.Log;
 
 public class Logger {
-	private static int LOG_LEVEL=6;
+	private static int LOG_LEVEL=0;
 	private static int ERROR = 1;
 	private static int WARN = 2;
 	private static int INFO =3;

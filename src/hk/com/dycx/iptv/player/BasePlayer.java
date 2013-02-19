@@ -139,7 +139,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 	}
 
 	private void startPlay() {
-		if (mPlayList != null && mPosition > 0 && mPlayList.size() > mPosition) {
+		if (mPlayList != null && mPosition >= 0 && mPlayList.size() > mPosition) {
 			Message preMessage = Message.obtain();
 			preMessage.obj = getString(R.string.load_channel) + mPlayList.get(mPosition).getName();
 			preMessage.what = SHOW_CHANNEL_LOADING;
@@ -149,6 +149,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 			String path = mPlayList.get(mPosition).getUrl();
 			if (path != null && !path.isEmpty()) {
 				setVideoURI(path);
+//				setVideoURI("mnt/sdcard/test/1.wma"); // .mp4 .asf .avi .f4v .flv .mov .mp3 .ts .wma
 			} else {
 				Toast.makeText(getApplicationContext(), R.string.path_null + mPlayList.get(mPosition).getName() , 0).show();
 			}
