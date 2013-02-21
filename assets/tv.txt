@@ -1,6 +1,7 @@
 {"video":
 			[{"videoNamePerson":"CCTV",
-						"videos":[    {"title":"Fires music TV","url":"http://netcom.lg.ua:1000","image":""} 
+						"videos":[    {"title":"Zapto TV","url":"http://@viplive2.zapto.org:5001","image":""}
+									 ,{"title":"Fires music TV","url":"http://netcom.lg.ua:1000","image":""} 
 									 ,{"title":"Hit Music","url":"http://88.191.126.62:18002","image":""}
 									 ,{"title":"O TV","url":"mms://212.26.146.148:1755/wmtencoder/otv","image":""}
 									 ,{"title":"Первый канал","url":"rtp://@233.33.210.86:5050","image":""}

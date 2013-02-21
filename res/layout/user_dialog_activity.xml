@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_margin="30dip"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="110dip"
+            android:layout_height="35dip"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/user_name" />
+
+        <EditText
+            android:id="@+id/et_user_name"
+            android:textSize="15sp"
+            android:layout_width="200dip"
+            android:hint="@string/input"
+            android:singleLine="true"
+            android:layout_height="45dip" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_user_password"
+            android:layout_width="110dip"
+            android:layout_height="35dip"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/user_password" />
+
+        <EditText
+            android:id="@+id/et_user_password"
+            android:textSize="15sp"
+            android:hint="@string/input"
+            android:layout_width="200dip"
+            android:singleLine="true"
+            android:layout_height="45dip" />
+    </LinearLayout>
+	<LinearLayout 
+	    android:layout_width="200dip"
+	    android:layout_marginTop="20dip"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+	    
+	    <Button 
+	        android:id="@+id/btn_user_confirm"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/user_confirm"
+	        />
+	    <Button 
+	        android:id="@+id/btn_user_cancle"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_height="wrap_content"
+	        android:text="@string/user_cancle"
+	        />
+	</LinearLayout>
+</LinearLayout>

@@ -1,16 +1,20 @@
 package hk.com.dycx.iptv.player;
 
 import hk.com.dycx.iptv.R;
+import hk.com.dycx.iptv.UserDialogActivity;
 import hk.com.dycx.iptv.adapter.VideoInfoAdapter;
 import hk.com.dycx.iptv.bean.VideoInfo;
 import hk.com.dycx.iptv.utils.Logger;
+import hk.com.dycx.iptv.utils.Utils;
 
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface.OnKeyListener;
 import android.content.Intent;
@@ -44,6 +48,8 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 	protected static final int SHOW_CHANNEL_LOADING = 0;
 	protected static final int HIDE_PROGRESS = SHOW_CHANNEL_LOADING + 1;
 	protected static final int HIDE_CHANNELS = SHOW_CHANNEL_LOADING + 2;
+	
+	protected SharedPreferences mSharedPreferences;
 	
 	/** 共用对话框 */
 	private AlertDialog.Builder adb;
@@ -97,6 +103,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 		super.onCreate(savedInstanceState);
 		if (initContent()) 
 			return;
+		mSharedPreferences = getSharedPreferences(Utils.SP_SPNAME, Context.MODE_PRIVATE);
 		Logger.i(TAG, isDebug, "initContent");
 		initView();
 		Logger.i(TAG, isDebug, "initView");
@@ -140,22 +147,57 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 
 	private void startPlay() {
 		if (mPlayList != null && mPosition >= 0 && mPlayList.size() > mPosition) {
-			Message preMessage = Message.obtain();
-			preMessage.obj = getString(R.string.load_channel) + mPlayList.get(mPosition).getName();
-			preMessage.what = SHOW_CHANNEL_LOADING;
-			mHandler.sendMessage(preMessage);
 			//设置当前播放节目为高亮显示
 			mVideoInfoAdapter.setPlayPosition(mPosition);
 			String path = mPlayList.get(mPosition).getUrl();
 			if (path != null && !path.isEmpty()) {
-				setVideoURI(path);
-//				setVideoURI("mnt/sdcard/test/1.wma"); // .mp4 .asf .avi .f4v .flv .mov .mp3 .ts .wma
+				//判断URI是不是需要输入帐号和密码
+				checkUri(path);
 			} else {
 				Toast.makeText(getApplicationContext(), R.string.path_null + mPlayList.get(mPosition).getName() , 0).show();
 			}
 		}
 	}
  
+	private void checkUri(String path) {
+		if ("http://@viplive2.zapto.org:5001".equals(path)) {
+			String userName = mSharedPreferences.getString(Utils.SP_USER_NAME, null);
+			String userPassword = mSharedPreferences.getString(Utils.SP_USER_PASSWORD, null);
+			if (userName == null || userName.isEmpty() || userPassword == null || userPassword.isEmpty()) {
+				//弹出对话框
+				Intent userIntent = new Intent(BasePlayer.this, UserDialogActivity.class);
+				startActivityForResult(userIntent, 0);
+			}else {
+				Logger.i(TAG, isDebug, "userName:"+userName+";userPassword:"+userPassword);
+				// 拼装URI
+				Message preMessage = Message.obtain();
+				preMessage.obj = getString(R.string.load_channel) + mPlayList.get(mPosition).getName();
+				preMessage.what = SHOW_CHANNEL_LOADING;
+				mHandler.sendMessage(preMessage);
+//				path = "http://"+userName+":"+userPassword + "@viplive2.zapto.org:5001";
+//				path.replace("@", userName + ":" + userPassword + "@");
+				String[] split = path.split("@");
+				path = split[0] + userName + ":" + userPassword + "@" + split[1]; 
+				Logger.i(TAG, isDebug, "path.replace:"+path);
+				setVideoURI(path);
+//				setVideoURI("mnt/sdcard/test/1.wma"); // .mp4 .asf .avi .f4v .flv .mov .mp3 .ts .wma
+			}
+		}
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (data !=null) {
+			Logger.i(TAG, isDebug, "onActivityResult:data !=null");
+			//再查找加载
+			startPlay();
+		}else {
+			Logger.i(TAG, isDebug, "onActivityResult:data ==null");
+			exit();
+		}
+	}
+
 	private void getStartInfo() {
 		Intent intent = getIntent();
 		if (intent != null) {

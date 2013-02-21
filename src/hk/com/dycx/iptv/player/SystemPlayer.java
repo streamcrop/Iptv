@@ -1,6 +1,8 @@
 package hk.com.dycx.iptv.player;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnErrorListener;
@@ -26,6 +28,7 @@ public class SystemPlayer extends BasePlayer {
 	private VideoView mVideoView;
 	
 	private int errorWhat;
+	
 
 	@Override
 	protected void onResume() {
@@ -62,11 +65,17 @@ public class SystemPlayer extends BasePlayer {
 				errorWhat = what;
 				Logger.i(TAG, isDebug, "errorWhat:"+errorWhat + "extra:"+ extra);
 				if (Utils.isCheckNetAvailable(getApplicationContext())) { //网络可用
-					//用 vitamio 解码
-					startVitamioPlayer();
-					SystemPlayer.this.finish();
+					//先判断用户是否开启软件解码 用 vitamio 解码
+					boolean isDecode = mSharedPreferences.getBoolean(Utils.SP_DECODE, false);
+					Logger.i(TAG, isDebug, "isDecode:"+isDecode);
+					if (isDecode) {
+						startVitamioPlayer();
+					}else {
+						Toast.makeText(getApplicationContext(), R.string.error_path, 1).show();
+					}
+					exit();
 					return true;
-				}else { //网络不可用
+				}else {
 					//弹出网络不可用
 					alert(getString(R.string.net_not_work));
 					return true;

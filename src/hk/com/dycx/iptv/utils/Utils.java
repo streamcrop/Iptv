@@ -20,16 +20,38 @@ import android.os.Environment;
  */
 public class Utils {
 	private static final String TAG = "Utils";
+	
 	private static final boolean isDebug = true;
+	
+    public static final String SP_SPNAME = "config";
+    
+    public static final String SP_DECODE = "decode";
+    
+    public static final String SP_USER_NAME = "username";
+    
+    public static final String SP_USER_PASSWORD = "userpassword";
+    
 	public static String readAssetsToString(Activity context,String assetsFileName) {
 		InputStream is = null;
 		String temStr = null;
 		try {
-			File sdTvFile = new File(Environment.getExternalStorageDirectory() + "/" + assetsFileName);
-			if (sdTvFile.exists()) {
-				is = new FileInputStream(sdTvFile);
-				Logger.i(TAG, isDebug, "sd card 可用");
+			//查找data目录下的 assetsFileName 文件
+			File dataTvFile = new File("data/" + assetsFileName);
+			if (dataTvFile.exists()) {
+				is = new FileInputStream(dataTvFile);
+				Logger.i(TAG, isDebug, "data 可用");
 			}
+			
+			//查找mnt/sdcard目录下的 assetsFileName 文件
+			if (is == null) {
+				File sdTvFile = new File(Environment.getExternalStorageDirectory() + "/" + assetsFileName);
+				if (sdTvFile.exists()) {
+					is = new FileInputStream(sdTvFile);
+					Logger.i(TAG, isDebug, "sd card 可用");
+				}
+			}
+			
+			//从assert下面读取
 			if (is == null) {
 				is = context.getAssets().open(assetsFileName);
 				Logger.i(TAG, isDebug, "context.getAssets().open(assetsFileName);");
