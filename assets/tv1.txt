@@ -2,6 +2,8 @@
 			[{"videoNamePerson":"CCTV",
 						"videos":[  
 									 {"title":"CCTV-3（广东联通）","url":"rtsp://l.m.cztv.com:554/cctv3/live_ld","image":""}
+									  ,{"title":"c1","url":"HTTP://189.54.83.106:8888/","image":""}
+									 ,{"title":"c2","url":"MMS://189.54.83.106:8888/","image":""}
 									 ,{"title":"CCTV-2(高速通道)","url":"http://cntv.itv.doplive.com.cn/live592/index_128k.m3u8","image":"http://i0597.com/cntv/images/cctv2.gif","flags":"6"}
 									 ,{"title":"CCTV-3(高速通道)","url":"http://cntv.itv.doplive.com.cn/live593/index_128k.m3u8","image":"http://i0597.com/cntv/images/cctv3.gif","flags":"6"}
 									 ,{"title":"CCTV-4(高速通道)","url":"http://cntv.itv.doplive.com.cn/live594/index_128k.m3u8","image":"http://i0597.com/cntv/images/cctv4.gif","flags":"6"}

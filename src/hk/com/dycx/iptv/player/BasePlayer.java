@@ -145,7 +145,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 		});
 	}
 
-	private void startPlay() {
+	protected void startPlay() {
 		if (mPlayList != null && mPosition >= 0 && mPlayList.size() > mPosition) {
 			//设置当前播放节目为高亮显示
 			mVideoInfoAdapter.setPlayPosition(mPosition);
@@ -160,7 +160,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 	}
  
 	private void checkUri(String path) {
-		if ("http://@viplive2.zapto.org:5001".equals(path)) {
+		if ("viplive2.zapto.org:5001".equals(path)) {
 			String userName = mSharedPreferences.getString(Utils.SP_USER_NAME, null);
 			String userPassword = mSharedPreferences.getString(Utils.SP_USER_PASSWORD, null);
 			if (userName == null || userName.isEmpty() || userPassword == null || userPassword.isEmpty()) {
@@ -174,14 +174,18 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 				preMessage.obj = getString(R.string.load_channel) + mPlayList.get(mPosition).getName();
 				preMessage.what = SHOW_CHANNEL_LOADING;
 				mHandler.sendMessage(preMessage);
-//				path = "http://"+userName+":"+userPassword + "@viplive2.zapto.org:5001";
-//				path.replace("@", userName + ":" + userPassword + "@");
 				String[] split = path.split("@");
 				path = split[0] + userName + ":" + userPassword + "@" + split[1]; 
 				Logger.i(TAG, isDebug, "path.replace:"+path);
 				setVideoURI(path);
 //				setVideoURI("mnt/sdcard/test/1.wma"); // .mp4 .asf .avi .f4v .flv .mov .mp3 .ts .wma
 			}
+		}else {
+			Message preMessage = Message.obtain();
+			preMessage.obj = getString(R.string.load_channel) + mPlayList.get(mPosition).getName();
+			preMessage.what = SHOW_CHANNEL_LOADING;
+			mHandler.sendMessage(preMessage);
+			setVideoURI(path);
 		}
 	}
 	
