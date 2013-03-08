@@ -160,7 +160,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 	}
  
 	private void checkUri(String path) {
-		if ("viplive2.zapto.org:5001".equals(path)) {
+		if (path != null && path.contains("viplive2.zapto.org:5001")) {
 			String userName = mSharedPreferences.getString(Utils.SP_USER_NAME, null);
 			String userPassword = mSharedPreferences.getString(Utils.SP_USER_PASSWORD, null);
 			if (userName == null || userName.isEmpty() || userPassword == null || userPassword.isEmpty()) {

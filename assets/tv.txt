@@ -1,61 +1,19 @@
 {"video":
 			[{"videoNamePerson":"CCTV",
-						"videos":[    {"title":"Zapto TV","url":"http://@viplive2.zapto.org:5001","image":""}
-									 ,{"title":"Fires music TV","url":"http://netcom.lg.ua:1000","image":""} 
-									 ,{"title":"Hit Music","url":"http://88.191.126.62:18002","image":""}
-									 ,{"title":"O TV","url":"mms://212.26.146.148:1755/wmtencoder/otv","image":""}
-									 ,{"title":"Первый канал","url":"rtp://@233.33.210.86:5050","image":""}
-									 ,{"title":"Россия 1","url":"rtp://@233.33.210.92:5050","image":""}
-									 ,{"title":"Россия 2","url":"rtp://@233.33.210.93:5050","image":""}
-									 ,{"title":"НТВ","url":"rtp://@233.33.210.82:5050","image":""}
-									 ,{"title":"Россия Культура","url":"rtp://@233.33.210.60:5050","image":""}
-									 ,{"title":"Пятый","url":"rtp://@233.33.210.6:5050","image":""}
-									 ,{"title":"Россия 24","url":"rtp://@233.33.210.115:5050","image":""}
-									 ,{"title":"Карусел","url":"rtp://@233.33.210.105:5050","image":""}
-									 ,{"title":"Русская ночь","url":"rtp://@233.33.210.96:5050","image":""}
-									 ,{"title":"ТВЦ","url":"rtp://@233.33.220.40:5050","image":""}
-									 ,{"title":"MTV","url":"rtp://@233.33.220.52:5050","image":""}
-									 ,{"title":"Baby TV","url":"rtp://@233.33.220.21:5050","image":""}
-									 ,{"title":"ТВ 3","url":"rtp://@233.33.220.56:5050","image":""}
-									 ,{"title":"ЗАГОРОДНАЯ ЖИЗНЬ","url":"rtp://@233.33.220.239:5050","image":""}
-									 ,{"title":"Nickelodeon","url":"rtp://@233.33.210.80:5050","image":""}
-									 ,{"title":"Радио Гора","url":"http://listen.radiogora.ru:8000/electro320","image":""}
-									 ,{"title":"Наше Радио","url":"http://mp3.nashe.ru:80/nashe-192","image":""}
-									 ,{"title":"OneHD Dance","url":"rtmpe://93.114.43.3:1935/live","image":""}
-									 ,{"title":"OneHD Rock","url":"rtmpe://93.114.43.3:1935/live","image":""}
-									 ,{"title":"OneHD Pop","url":"rtmpe://93.114.43.3:1935/live","image":""}
-									 ,{"title":"OneND LiveMix","url":"rtmpe://93.114.43.3:1935/live","image":""}
-									 ,{"title":"Delux Muxic","url":"rtmp://flash.cdn.deluxemusic.tv/deluxemusic.tv-live/web_850","image":""}
-									 ,{"title":"Radio monte carlo TV","url":"rtmp://fms.105.net:1935/live/rmc1","image":""}
-									 ,{"title":"Подсекай TV SD","url":"rtmp://217.199.218.151/podsekaiTV/chanelSD","image":""}
-									 ,{"title":"Подсекай TV HD","url":"rtmp://217.199.218.151:1935/podsekaiTV/chanelHD","image":""}
-									 ,{"title":"HD Travel","url":"rtmp://194.63.143.117:80/live/_definst_/HDtravelCDN","image":""}
-									 ,{"title":"HD Process","url":"rtmp://194.63.143.117:80/live/_definst_/HDprocessCDN","image":""}
-									 ,{"title":"HD Extreme","url":"rtmp://194.63.143.117:80/live/_definst_/HDextremeCDN","image":""}
-									 ,{"title":"Russian musicbox","url":"rtmp://musicbox.cdnvideo.ru/musicbox-live","image":""}
-									 ,{"title":"PIC HD","url":"rtmp://fms.pik-tv.com/live/piktv3pik3tv","image":""}
-									 ,{"title":"PIC SD","url":"rtmp://fms.pik-tv.com/live/piktv2pik2tv","image":""}
-									 ,{"title":"BBC","url":"rtmp://media7.lsops.net/live/bbcworld1_en_high.sdp","image":""}
-									 ,{"title":"Первый","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Россия 1","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"СТС","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"НТВ","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Россия 2","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Россия К","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"РЕН ТВ","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Россия 24","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Карусель","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"5 канал","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Disney","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Домашний","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"ТВЦ","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Звезда","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Муз тв","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Бридж тв","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"ТВ3","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"MTV","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Ru Tv","url":"rtmp://213.186.127.42:1935/live/","image":""}
-									 ,{"title":"Шансон Тв","url":"rtmp://chanson.cdnvideo.ru/chanson-live","image":""}
+						"videos":[    {"title":"凤凰卫视美洲台","url":"http://lv3.livem3u8.na.itv.cn/live/6bf6dfe3eeaa46118c318e950bc288bd.m3u8?bitrate=1200","image":""}
+									 ,{"title":"宏观卫视","url":"http://lv3.livem3u8.na.itv.cn/live/7abb2bcad9b6463eafdbdf64a9b3b8ad.m3u8?bitrate=1200","image":""}
+									 ,{"title":"香港卫视","url":"http://qqlive.rec.hdl.lxdns.com/2584831218.flv","image":""}
+									 ,{"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
+									 ,{"title":"南投新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_2_1","image":""}
+									 ,{"title":"冠军HD","url":"rtsp://27.100.64.99:1935/liveedge/live_2_0_0","image":""}
+									 ,{"title":"高清电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"本港台","url":"rtsp://116.199.127.68/bengang","image":""}
+									 ,{"title":"本港国际","url":"rtsp://116.199.127.68/guoji","image":""}
+									 ,{"title":"星空卫视","url":"rtsp://116.199.127.68/xingkong","image":""}
+									 ,{"title":"凤凰卫视资讯台","url":"http://live.3gv.ifeng.com/live/1256?file=livestream","image":""}
+									 ,{"title":"凤凰卫视中文台","url":"http://live.3gv.ifeng.com/live/2256","image":""}
 								] 
 	
 			}
