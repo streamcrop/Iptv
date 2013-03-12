@@ -1,0 +1,16 @@
+{"video":
+			[{"videoNamePerson":"CCTV",
+						"videos":[    {"title":"cctv1","url":"http://player.letvcdn.com/p/2012","image":""}
+									 ,{"title":"cctv2","url":"http://player.letvcdn.com/p/2012","image":""}
+									 ,{"title":"cctv3","url":"http://player.letvcdn.com/p/2012","image":""}
+									 ,{"title":"CCTV1_","url":"http://player.letvcdn.com/p/201212/06/LivePlayer.swf?autoplay=true&streamid=cctv1","image":""}
+									 ,{"title":"CCTV2_","url":"http://player.letvcdn.com/p/201212/06/LivePlayer.swf?autoplay=true&streamid=cctv2","image":""}
+									 ,{"title":"CCTV3_","url":"http://player.letvcdn.com/p/201212/06/LivePlayer.swf?autoplay=true&streamid=cctv3","image":""}
+									 ,{"title":"pptv|英超","url":"http://web-play.pptv.com/web-m3u8-300224.m3u8","image":""}
+									 ,{"title":"pptv|足球","url":"http://web-play.pptv.com/web-m3u8-300225.m3u8","image":""}
+									 ,{"title":"pptv|CBA灌篮","url":"http://web-play.pptv.com/web-m3u8-300385.m3u8","image":""}
+								] 
+	
+			}
+			]
+	}
