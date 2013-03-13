@@ -73,7 +73,7 @@ public class VideoInfoAdapterTwo extends BaseAdapter {
 	}
 	
 	private void bindView(VideoInfo sVideoInfo, ViewHolder holder, int position) {
-		int index = 10000 + position;
+		int index = 10001 + position;
 		String valueOf = String.valueOf(index);
 		String substring = valueOf.substring(valueOf.length() - 3);
 		holder.video_name.setText(substring + "     " + sVideoInfo.getName());

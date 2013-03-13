@@ -66,8 +66,10 @@ public class SystemPlayer extends BasePlayer {
 				Logger.i(TAG, isDebug, "errorWhat:"+errorWhat + "extra:"+ extra);
 				if (Utils.isCheckNetAvailable(getApplicationContext())) { //网络可用
 					//先判断用户是否开启软件解码 用 vitamio 解码
-					boolean isDecode = mSharedPreferences.getBoolean(Utils.SP_DECODE, false);
+//					boolean isDecode = mSharedPreferences.getBoolean(Utils.SP_DECODE, false);
+					boolean isDecode = true;
 					Logger.i(TAG, isDebug, "isDecode:"+isDecode);
+					//一直开启软件解码
 					if (isDecode) {
 						startVitamioPlayer();
 					}else {
