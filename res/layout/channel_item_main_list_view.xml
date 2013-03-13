@@ -1,18 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
     android:gravity="center_horizontal"
+    android:background="@drawable/channel_item_main_list_view_background_selector"
     >
     <TextView 
         android:gravity="center"
         android:id="@+id/ibtn_main_gridview_item_video_name"
         android:layout_width="180dip"
-        android:layout_height="35dip"
+        android:layout_height="45dip"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
         android:singleLine="true"
+        android:textSize="20sp"
         android:textColor="@android:color/background_light"
         android:ellipsize="marquee"
-        android:background="@drawable/main_item_background"
         android:marqueeRepeatLimit="marquee_forever"
         />
 </LinearLayout>

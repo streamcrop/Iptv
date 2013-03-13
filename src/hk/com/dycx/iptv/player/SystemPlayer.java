@@ -106,10 +106,8 @@ public class SystemPlayer extends BasePlayer {
 	protected void startVitamioPlayer() {
 		Logger.i(TAG, isDebug, "startVitamioPlayer");
 		Intent playIntent = new Intent(SystemPlayer.this, VitamioPlayer.class);
-		Bundle sBundle = new Bundle();
-		sBundle.putSerializable("MediaIdList", super.mPlayList);
-		playIntent.putExtras(sBundle);
-		playIntent.putExtra("CurrentPosInMediaIdList", super.mPosition);
+		playIntent.putExtra(Utils.CHILD_SELECT_POSITION, mChildSelectPosition);
+		playIntent.putExtra(Utils.GROUP_SELECT_POSITION, mGroupSelectPosition);
 		startActivity(playIntent);
 	}
 
