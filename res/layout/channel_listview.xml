@@ -33,31 +33,47 @@
         android:listSelector="@android:color/transparent" />
 	</RelativeLayout>
 	<LinearLayout 
+	    android:id="@+id/ll_playing"
 	    android:layout_alignParentBottom="true"
 	    android:layout_alignParentRight="true"
 	    android:layout_width="200dip"
 	    android:layout_height="100dip"
 	    android:orientation="vertical"
 	    android:gravity="center"
-	    android:visibility="gone"
 	    >
 	<TextView 
-	    android:id="@+id/tv_playing1"
+	    android:id="@+id/tv_playing_title"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:textSize="16sp"
+	    android:textSize="18sp"
 	    android:textColor="@android:color/background_light"
-	    android:text="1233333"
+	    android:text="@string/playing_channel"
 	    />
 	<TextView 
-	    android:id="@+id/tv_playing"
+	    android:id="@+id/tv_playing_group"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="18sp"
+	    android:textColor="@android:color/background_light"
+	    />
+	<TextView 
+	    android:id="@+id/tv_playing_child"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:textSize="16sp"
 	    android:textColor="@android:color/background_light"
-	    android:text="55555566666"
 	    />
 	</LinearLayout>
+	<ToggleButton 
+	    android:id="@+id/tbtn_full_screen"
+	    android:layout_alignParentRight="true"
+	    android:layout_above="@+id/ll_playing"
+	    android:layout_width="150dip"
+	    android:layout_height="55dip"
+	    android:layout_marginRight="30dip"
+	    android:textOn="@string/zoom_full_screen"
+	    android:textOff="@string/zoom_normal"
+	    />
    <!--  <Button
         android:id="@+id/btn_list_next"
         android:layout_width="wrap_content"

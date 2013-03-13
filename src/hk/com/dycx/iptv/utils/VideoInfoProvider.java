@@ -44,6 +44,7 @@ public class VideoInfoProvider {
 		}
     	 return videoInfos;
     }*/
+	public static boolean isPullException = false;
     public static List<VideoGroupInfo> gobalGroupInfos = new ArrayList<VideoGroupInfo>();
     public static List<VideoGroupInfo> pullRead(String jsonObject){
     	try {
@@ -72,8 +73,9 @@ public class VideoInfoProvider {
 					 groupInfo = null;
 				 }
 			} 
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
+			isPullException = true;
 		}
     	return gobalGroupInfos;
     }  

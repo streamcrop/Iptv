@@ -12,6 +12,7 @@ import hk.com.dycx.iptv.player.SystemPlayer;
 import hk.com.dycx.iptv.utils.Logger;
 import hk.com.dycx.iptv.utils.Utils;
 import hk.com.dycx.iptv.utils.VideoInfoProvider;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,7 +23,9 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -56,8 +59,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private void init() {
         String jsonStr = Utils.readAssetsToString(this, "tv.txt");
-        if (VideoInfoProvider.gobalGroupInfos == null || VideoInfoProvider.gobalGroupInfos.size() <= 0) {
+        
+        if (VideoInfoProvider.gobalGroupInfos == null || VideoInfoProvider.gobalGroupInfos.size() <= 0 || VideoInfoProvider.isPullException) {
+        	VideoInfoProvider.isPullException = false;
         	VideoInfoProvider.gobalGroupInfos = VideoInfoProvider.pullRead(jsonStr);
+        	checkPullError();
 		}
 //        Logger.i(TAG, isDebug, "mVideoGroupInfos.size():" + mVideoGroupInfos.size());
 //        for (int i = 0; i < mVideoGroupInfos.size(); i++) {
@@ -71,6 +77,16 @@ public class MainActivity extends Activity implements OnClickListener {
 //		}
         findView();
         setViewClickListener();
+	}
+
+	private void checkPullError() {
+		if (VideoInfoProvider.isPullException) {
+			new AlertDialog.Builder(this)
+			.setCancelable(true)
+			.setMessage(R.string.pull_error)
+			.create()
+			.show();
+		}
 	}
 	
 	private void findView() {
@@ -106,6 +122,11 @@ public class MainActivity extends Activity implements OnClickListener {
 				
 			}
 		});
+		if (VideoInfoProvider.gobalGroupInfos != null && VideoInfoProvider.gobalGroupInfos.size() > 0 ) {
+			mLv_main.requestFocus();
+			mLv_main.setItemChecked(0, true);
+			Logger.i(TAG, isDebug, "mLv_main.setItemChecked(0, true)");
+		}
 		
 		mLv_main.setOnItemClickListener(new OnItemClickListener() {
 
@@ -133,6 +154,8 @@ public class MainActivity extends Activity implements OnClickListener {
 					playIntent.putExtra(Utils.CHILD_SELECT_POSITION, mChildSelectPosition);
 					playIntent.putExtra(Utils.GROUP_SELECT_POSITION, mGroupSelectPosition);
 					startActivity(playIntent);
+				}else {
+					Toast.makeText(getApplicationContext(), R.string.net_not_work, 1).show();
 				}
 			}
 		});

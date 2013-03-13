@@ -4,6 +4,61 @@
 									 {"title":"CZTV Changzhou city","url":"mms://vod1.cztv.tv/cztv02","image":""}
 									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
 									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
+									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
 								] 
 	
 			},{"videoNamePerson":"FuJian",
@@ -30,18 +85,65 @@
 			},{"videoNamePerson":"香港卫视",
 						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
 									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
 									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
 									 ,{"title":"南投新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_2_1","image":""}
-									 ,{"title":"冠军HD","url":"rtsp://27.100.64.99:1935/liveedge/live_2_0_0","image":""}
-									 ,{"title":"高清电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
-									 ,{"title":"Bereket TV","url":"rtsp://fl1.sz.xlcdn.com:80/live/_definst_/sz=berekettv=berekettv_3","image":""}
-									 ,{"title":"星空卫视","url":"rtsp://116.199.127.68/xingkong","image":""}
-									 ,{"title":"Euronews Turkish","url":"rtsp://fr-par-5.stream-relay.hexaglobe.net:1935/rtpeuronewslive/tr_video750_flash_all.sdp","image":""}
-									 ,{"title":"TRT Haber","url":"mms://95.0.159.138/TV2","image":""}
-									 ,{"title":"TRT 2 (Haber)","url":"mms://95.0.159.131/TV2","image":""}
-									 ,{"title":"BRT tv2","url":"mms://bms.brtk.net/brt2","image":""}
-									 ,{"title":"宏观卫视","url":"http://lv3.livem3u8.na.itv.cn/live/7abb2bcad9b6463eafdbdf64a9b3b8ad.m3u8?bitrate=1200","image":""}
-									 ,{"title":"香港卫视","url":"http://qqlive.rec.hdl.lxdns.com/2584831218.flv","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
+								] 
+	
+			},{"videoNamePerson":"香港卫视",
+						"videos":[    {"title":"亚视电影","url":"http://223.27.170.210/channels/39/800.flv/live","image":""}
+									 ,{"title":"雲林新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_0_0","image":""}
+									 ,{"title":"大台中新闻","url":"rtsp://27.100.64.99:1935/liveedge/live_1_1_0","image":""}
 								] 
 	
 			},{"videoNamePerson":"Favourite",
