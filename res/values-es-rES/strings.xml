@@ -6,7 +6,8 @@
     <string name="VideoView_error_button">OK</string>
     <string name="mediacontroller_play_pause">Play/Pause</string>
     
-    <string name="app_name">SimpleTV</string>
+    <string name="app_name">Iptv</string>
+    <string name="channel_title">channel</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="settings">"Settings"</string>
@@ -18,7 +19,7 @@
     <string name="user_confirm">OK</string>
     <string name="user_cancle">Cancel</string>
     <string name="input">Please input</string>
-    <string name="title_activity_main">SimpleTV</string>
+    <string name="title_activity_main">Iptv</string>
     <string name="first_item">First channel</string>
     <string name="last_item">Last channel</string>
     <string name="path_null">Invalid URL</string>

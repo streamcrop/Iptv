@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="listview_marginTop">160dip</dimen>
+    <dimen name="listview_marginLeft">10dip</dimen>
+    <dimen name="listview_width">335dip</dimen>
+    <dimen name="listview_height">480dip</dimen>
+    <dimen name="listview_dividerHeight">10dip</dimen>
+    
+</resources>

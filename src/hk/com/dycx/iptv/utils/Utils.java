@@ -31,6 +31,10 @@ public class Utils {
     
     public static final String SP_USER_PASSWORD = "userpassword";
     
+    public static final String GROUP_SELECT_POSITION = "GroupSelectPosition";
+    
+    public static final String CHILD_SELECT_POSITION = "ChildSelectPosition";
+    
 	public static String readAssetsToString(Activity context,String assetsFileName) {
 		InputStream is = null;
 		String temStr = null;

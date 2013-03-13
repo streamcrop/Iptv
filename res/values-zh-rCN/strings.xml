@@ -6,7 +6,8 @@
     <string name="VideoView_error_button">OK</string>
     <string name="mediacontroller_play_pause">Play/Pause</string>
     
-    <string name="app_name">SimpleTV</string>
+    <string name="app_name">Iptv</string>
+    <string name="channel_title">频道</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="settings">"  设  置  "</string>
@@ -18,7 +19,7 @@
     <string name="user_confirm">确定</string>
     <string name="user_cancle">取消</string>
     <string name="input">请输入</string>
-    <string name="title_activity_main">SimpleTV</string>
+    <string name="title_activity_main">Iptv</string>
     <string name="first_item">己经是第一个节目</string>
     <string name="last_item">己经是最后一个节目</string>
     <string name="path_null">播放路径为空</string>

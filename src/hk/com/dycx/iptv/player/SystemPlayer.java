@@ -66,8 +66,10 @@ public class SystemPlayer extends BasePlayer {
 				Logger.i(TAG, isDebug, "errorWhat:"+errorWhat + "extra:"+ extra);
 				if (Utils.isCheckNetAvailable(getApplicationContext())) { //网络可用
 					//先判断用户是否开启软件解码 用 vitamio 解码
-					boolean isDecode = mSharedPreferences.getBoolean(Utils.SP_DECODE, false);
+//					boolean isDecode = mSharedPreferences.getBoolean(Utils.SP_DECODE, false);
+					boolean isDecode = true;
 					Logger.i(TAG, isDebug, "isDecode:"+isDecode);
+					//一直开启软件解码
 					if (isDecode) {
 						startVitamioPlayer();
 					}else {
@@ -106,10 +108,8 @@ public class SystemPlayer extends BasePlayer {
 	protected void startVitamioPlayer() {
 		Logger.i(TAG, isDebug, "startVitamioPlayer");
 		Intent playIntent = new Intent(SystemPlayer.this, VitamioPlayer.class);
-		Bundle sBundle = new Bundle();
-		sBundle.putSerializable("MediaIdList", super.mPlayList);
-		playIntent.putExtras(sBundle);
-		playIntent.putExtra("CurrentPosInMediaIdList", super.mPosition);
+		playIntent.putExtra(Utils.CHILD_SELECT_POSITION, mChildSelectPosition);
+		playIntent.putExtra(Utils.GROUP_SELECT_POSITION, mGroupSelectPosition);
 		startActivity(playIntent);
 	}
 
