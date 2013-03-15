@@ -29,6 +29,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -56,6 +57,18 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 	protected static final int HIDE_CHANNELS = SHOW_CHANNEL_LOADING + 2;
 
 	protected SharedPreferences mSharedPreferences;
+	
+	/** 屏幕高度 */
+	protected int mScreenHeight;
+	
+	/** 屏幕宽度 */
+	protected int mScreenWidth;
+	
+	/** 全屏播放 */
+	protected final static int SCREEN_FULL = 0;
+	
+	/** 正常播放 */
+	protected final static int SCREEN_DEFAULT = 1;
 
 	/** 共用对话框 */
 	private AlertDialog.Builder adb;
@@ -82,10 +95,17 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 	/** 当前播放节目列表 */
 	protected ArrayList<VideoInfo> mVideoInfos;
 
-	/** 当前播放节目 */
+	/** 当前选中节目 */
 	protected int mChildSelectPosition;
 
+	/** 当前选中分类 */
 	protected int mGroupSelectPosition;
+	
+	/** 当前播放节目 */
+	protected int mChildPlayPosition;
+	
+	/** 当前选中分类 */
+	protected int mGroupPlayPosition;
 
 	/** 上一页 */
 	private Button btn_list_pre;
@@ -130,6 +150,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 		if (initContent())
 			return;
 		mSharedPreferences = getSharedPreferences(Utils.SP_SPNAME, Context.MODE_PRIVATE);
+		getScreenSize();
 		Logger.i(TAG, isDebug, "initContent");
 		initView();
 		Logger.i(TAG, isDebug, "initView");
@@ -145,6 +166,13 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 
 	}
 
+	private void getScreenSize() {
+		Display display = getWindowManager().getDefaultDisplay();
+		mScreenHeight = display.getHeight();
+		mScreenWidth = display.getWidth();
+
+	}
+	
 	@Override
 	protected void onStop() {
 		if (mProgressDialog != null) {
@@ -162,6 +190,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 		tv_playing_group = (TextView) mListviewPanel.findViewById(R.id.tv_playing_group);
 		tv_playing_child = (TextView) mListviewPanel.findViewById(R.id.tv_playing_child);
 		tbtn_full_screen = (ToggleButton) mListviewPanel.findViewById(R.id.tbtn_full_screen);
+		tbtn_full_screen.setOnClickListener(this);
 //		btn_list_pre = (Button) mListviewPanel.findViewById(R.id.btn_list_pre);
 //		btn_list_next = (Button) mListviewPanel.findViewById(R.id.btn_list_next);
 //		btn_list_pre.setOnClickListener(this);
@@ -201,11 +230,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 				startActivityForResult(userIntent, 0);
 			} else {
 				Logger.i(TAG, isDebug, "userName:" + userName + ";userPassword:" + userPassword);
-				// 拼装URI
-				Message preMessage = Message.obtain();
-				preMessage.obj = getString(R.string.load_channel) + mVideoInfos.get(mChildSelectPosition).getName();
-				preMessage.what = SHOW_CHANNEL_LOADING;
-				mHandler.sendMessage(preMessage);
+				showProgressDialog();
 				String[] split = path.split("@");
 				path = split[0] + userName + ":" + userPassword + "@" + split[1];
 				Logger.i(TAG, isDebug, "path.replace:" + path);
@@ -214,18 +239,24 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 				// .flv .mov .mp3 .ts .wma
 			}
 		} else {
-			Message preMessage = Message.obtain();
-			preMessage.obj = getString(R.string.load_channel) + mVideoInfos.get(mChildSelectPosition).getName();
-			preMessage.what = SHOW_CHANNEL_LOADING;
-			mHandler.sendMessage(preMessage);
+			showProgressDialog();
 			openVideo(path);
 		}
+	}
+
+	protected void showProgressDialog() {
+		Message preMessage = Message.obtain();
+		preMessage.obj = getString(R.string.load_channel) + mVideoInfos.get(mChildSelectPosition).getName();
+		preMessage.what = SHOW_CHANNEL_LOADING;
+		mHandler.sendMessage(preMessage);
 	}
 	
 	private void openVideo(String path){
 		setVideoURI(path);
-		String playingGroupName = VideoInfoProvider.gobalGroupInfos.get(mGroupSelectPosition).getGroupName();
-		String playingVideoName = mVideoInfos.get(mChildSelectPosition).getName();
+		mGroupPlayPosition = mGroupSelectPosition;
+		mChildPlayPosition = mChildSelectPosition;
+		String playingGroupName = VideoInfoProvider.gobalGroupInfos.get(mGroupPlayPosition).getGroupName();
+		String playingVideoName = mVideoInfos.get(mChildPlayPosition).getName();
 		tv_playing_group.setText(playingGroupName);
 		tv_playing_child.setText(playingVideoName);
 	}
@@ -263,10 +294,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 					mVideoInfoChildAdapter.setVideoInfos(mVideoInfos);
 					mGroupSelectPosition = position;
 					lv_play_group.setItemChecked(position, true);
-					if (mListviewPanel != null && mListviewPanel.getVisibility() == View.VISIBLE) {
-						mHandler.removeMessages(HIDE_CHANNELS);
-						mHandler.sendEmptyMessageDelayed(HIDE_CHANNELS, 5000);
-					}
+					keepListViewPanelShow();
 				}
 
 				@Override
@@ -283,10 +311,7 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 					mVideoInfoChildAdapter.setVideoInfos(mVideoInfos);
 					mGroupSelectPosition = position;
 					lv_play_group.setItemChecked(position, true);
-					if (mListviewPanel != null && mListviewPanel.getVisibility() == View.VISIBLE) {
-						mHandler.removeMessages(HIDE_CHANNELS);
-						mHandler.sendEmptyMessageDelayed(HIDE_CHANNELS, 5000);
-					}
+					keepListViewPanelShow();
 				}
 			});
 			
@@ -307,14 +332,17 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 			lv_play_child.setOnItemClickListener(new OnItemClickListener() {
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-					if (mChildSelectPosition != position) {
+					if (mChildSelectPosition == position && mGroupPlayPosition == mGroupSelectPosition) {
+						Toast.makeText(getApplicationContext(), R.string.select_channel_palying_now, 0).show();
+					} else {
 						lv_play_child.setItemChecked(position, true);
 						mChildSelectPosition = position;
-						startPlay();
-						mHandler.sendEmptyMessage(HIDE_CHANNELS);
-					} else {
-//						Toast.makeText(getApplicationContext(), R.string.select_channel_palying_now, 0).show();
-						hideChannel();
+						if (isSystemPlay()) {
+							startPlay();
+							mHandler.sendEmptyMessage(HIDE_CHANNELS);
+						}else {
+							startSystemPlayer();
+						}
 					}
 				}
 			});
@@ -323,17 +351,35 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 
 				@Override
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					if (mListviewPanel != null && mListviewPanel.getVisibility() == View.VISIBLE) {
-						mHandler.removeMessages(HIDE_CHANNELS);
-						mHandler.sendEmptyMessageDelayed(HIDE_CHANNELS, 5000);
-					}
+					keepListViewPanelShow();
 				}
+
+
 
 				@Override
 				public void onNothingSelected(AdapterView<?> parent) {
 					
 				}
 			});
+		}
+	}
+	
+	protected void startSystemPlayer() {
+		if (Utils.isCheckNetAvailable(getApplicationContext())) { //网络可用
+			Intent playIntent = new Intent(BasePlayer.this, SystemPlayer.class);
+			Logger.i(TAG, isDebug, "VitamioPlayer --------> SystemPlayer.class)");
+			playIntent.putExtra(Utils.CHILD_SELECT_POSITION, mChildSelectPosition);
+			playIntent.putExtra(Utils.GROUP_SELECT_POSITION, mGroupSelectPosition);
+			startActivity(playIntent);
+		}else {
+			Toast.makeText(getApplicationContext(), R.string.net_not_work, 1).show();
+		}
+	}
+	
+	private void keepListViewPanelShow() {
+		if (mListviewPanel != null && mListviewPanel.getVisibility() == View.VISIBLE) {
+			mHandler.removeMessages(HIDE_CHANNELS);
+			mHandler.sendEmptyMessageDelayed(HIDE_CHANNELS, 5000);
 		}
 	}
 
@@ -423,14 +469,13 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 //			showChannel();
 //			break;
 		case R.id.tbtn_full_screen:
+			keepListViewPanelShow();
 			if (tbtn_full_screen.isChecked()) {
-				tbtn_full_screen.setChecked(false);
-				//TODO 设置为normal
-				Toast.makeText(getApplicationContext(), "设置为normal", 0).show();
+				//设置为全屏
+				setVideoScale(SCREEN_FULL);
 			} else {
-				tbtn_full_screen.setChecked(true);
-				//TODO 设置为全屏
-				Toast.makeText(getApplicationContext(), "置为全屏", 0).show();
+				//设置为normal
+				setVideoScale(SCREEN_DEFAULT);
 			}
 			break;
 		}
@@ -533,5 +578,12 @@ public abstract class BasePlayer extends Activity implements android.view.View.O
 
 	public abstract void setVideoViewListener();
 
+	/** 退出 */
 	public abstract void exit();
+	
+	/** 设置Video显示大小 */
+	public abstract void setVideoScale(int type);
+	
+	/** 是否是用系统播放器 */
+	public abstract boolean isSystemPlay();
 }

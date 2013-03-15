@@ -6,16 +6,18 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnErrorListener;
+import android.media.MediaPlayer.OnInfoListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import android.widget.VideoView;
 import hk.com.dycx.iptv.R;
 import hk.com.dycx.iptv.utils.Logger;
 import hk.com.dycx.iptv.utils.Utils;
+import hk.com.dycx.iptv.videoview.VideoView;
 
 /**
  * @author zhangping e-mail:zp@dycx.com.hk
@@ -89,9 +91,11 @@ public class SystemPlayer extends BasePlayer {
 
 			@Override
 			public void onPrepared(MediaPlayer mp) {
+				setVideoScale(SCREEN_DEFAULT);
 				mVideoView.start();
-				mHandler.sendEmptyMessage(HIDE_PROGRESS);
+//				mHandler.sendEmptyMessage(HIDE_PROGRESS);
 				Logger.i(TAG, isDebug, "mVideoView.start()");
+				Logger.i(TAG, isDebug, "mVideoView.getHeight" + mVideoView.getHeight() + "mVideoView.getWidth" + mVideoView.getWidth());
 			}
 		});
 		
@@ -103,6 +107,51 @@ public class SystemPlayer extends BasePlayer {
 			}
 		});
 	
+		mVideoView.setOnInfoListener(new OnInfoListener() {
+			
+			@Override
+			public boolean onInfo(MediaPlayer arg0, int arg1, int arg2) {
+				switch (arg1) {
+				case MediaPlayer.MEDIA_INFO_BUFFERING_START:
+					Logger.i(TAG, isDebug, "MediaPlayer.MEDIA_INFO_BUFFERING_START");
+					//开始缓存，暂停播放
+					if (isPlaying()) {
+						stopPlayer();
+						needResume = true;
+					}
+//					showProgressDialog();
+					break;
+				case MediaPlayer.MEDIA_INFO_BUFFERING_END:
+					Logger.i(TAG, isDebug, "MediaPlayer.MEDIA_INFO_BUFFERING_END");
+					//缓存完成，继续播放
+					if (needResume)
+						startPlayer();
+					mHandler.sendEmptyMessage(HIDE_PROGRESS);
+					break;
+				case MediaPlayer.MEDIA_INFO_METADATA_UPDATE:
+					Logger.i(TAG, isDebug, "MediaPlayer.MEDIA_INFO_METADATA_UPDATE ");
+					break;
+				}
+				return false;
+			}
+		});
+	}
+	
+	/** 是否需要自动恢复播放，用于自动暂停，恢复播放 */
+	private boolean needResume;
+	
+	private void stopPlayer() {
+		if (mVideoView != null)
+			mVideoView.pause();
+	}
+	
+	private void startPlayer() {
+		if (mVideoView != null)
+			mVideoView.start();
+	}
+
+	private boolean isPlaying() {
+		return mVideoView != null && mVideoView.isPlaying();
 	}
 
 	protected void startVitamioPlayer() {
@@ -144,5 +193,45 @@ public class SystemPlayer extends BasePlayer {
 		} catch (Exception e) {
 			finish();
 		}
+	}
+
+	@Override
+	public void setVideoScale(int type) {
+		switch (type) {
+		case SCREEN_DEFAULT:
+			int videoWidth = mVideoView.getVideoWidth();
+			int videoHeight = mVideoView.getVideoHeight();
+			int mWidth = mScreenWidth;
+			int mHeight = mScreenHeight;
+
+			if (videoWidth > 0 && videoHeight > 0) {
+				if (videoWidth * mHeight > mWidth * videoHeight) {
+
+					mHeight = mWidth * videoHeight / videoWidth;
+				} else if (videoWidth * mHeight < mWidth * videoHeight) {
+
+					mWidth = mHeight * videoWidth / videoHeight;
+				} else {
+
+				}
+			}
+
+			mVideoView.setVideoScale(mWidth, mHeight);
+
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+			break;
+			
+		case SCREEN_FULL:
+			mVideoView.setVideoScale(mScreenWidth, mScreenHeight);
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+			break;
+
+		}
+	}
+
+	@Override
+	public boolean isSystemPlay() {
+		return true;
 	}
 }

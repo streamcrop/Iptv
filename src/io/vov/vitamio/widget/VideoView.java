@@ -363,7 +363,7 @@ public class VideoView extends SurfaceView implements MediaController.MediaPlaye
 					mMediaPlayer.start();
 			}
 
-			return true;
+			return false;
 		}
 	};
 

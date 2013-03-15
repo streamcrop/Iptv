@@ -1,14 +1,19 @@
 package hk.com.dycx.iptv.player;
 
+import android.content.Intent;
 import android.net.Uri;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.MediaPlayer.OnCompletionListener;
 import io.vov.vitamio.MediaPlayer.OnErrorListener;
+import io.vov.vitamio.MediaPlayer.OnInfoListener;
 import io.vov.vitamio.MediaPlayer.OnPreparedListener;
 import io.vov.vitamio.widget.VideoView;
+import hk.com.dycx.iptv.MainActivity;
 import hk.com.dycx.iptv.R;
 import hk.com.dycx.iptv.utils.Logger;
 import hk.com.dycx.iptv.utils.Utils;
@@ -67,6 +72,7 @@ public class VitamioPlayer extends BasePlayer {
 			mVideoView.setVideoPath(path);
 		Logger.i(TAG, isDebug, "zzzzzzzzzUri:" + Uri.parse(path));
 	}
+	
 	@Override
 	public void setVideoViewListener() {
 		mVideoView.setOnErrorListener(new OnErrorListener() {
@@ -88,8 +94,10 @@ public class VitamioPlayer extends BasePlayer {
 		mVideoView.setOnPreparedListener( new OnPreparedListener() {
 			@Override
 			public void onPrepared(MediaPlayer mp) {
-				mVideoView.start();
-				mHandler.sendEmptyMessage(HIDE_PROGRESS);
+				setVideoScale(SCREEN_DEFAULT);
+				//改到到用 setOnInfoListener 解决progress dialog 和显示同步 和 退出播放后直接退出的问题
+//				mVideoView.start();
+//				mHandler.sendEmptyMessage(HIDE_PROGRESS);
 				Logger.i(TAG, isDebug, "mVideoView.start()");
 			}
 		});
@@ -101,8 +109,54 @@ public class VitamioPlayer extends BasePlayer {
 				exit();
 			}
 		});
+		
+		mVideoView.setOnInfoListener(new OnInfoListener() {
+			
+			@Override
+			public boolean onInfo(MediaPlayer arg0, int arg1, int arg2) {
+				switch (arg1) {
+				case MediaPlayer.MEDIA_INFO_BUFFERING_START:
+					Logger.i(TAG, isDebug, "MediaPlayer.MEDIA_INFO_BUFFERING_START");
+					//开始缓存，暂停播放
+					if (isPlaying()) {
+						stopPlayer();
+						needResume = true;
+					}
+//					showProgressDialog();
+					break;
+				case MediaPlayer.MEDIA_INFO_BUFFERING_END:
+					Logger.i(TAG, isDebug, "MediaPlayer.MEDIA_INFO_BUFFERING_END");
+					//缓存完成，继续播放
+					if (needResume)
+						startPlayer();
+					mHandler.sendEmptyMessage(HIDE_PROGRESS);
+					break;
+				case MediaPlayer.MEDIA_INFO_DOWNLOAD_RATE_CHANGED:
+					Logger.i(TAG, isDebug, "MediaPlayer.MEDIA_INFO_DOWNLOAD_RATE_CHANGED download rate:" + arg2);
+					break;
+
+				}
+				return false;
+			}
+		});
 	}
 
+	/** 是否需要自动恢复播放，用于自动暂停，恢复播放 */
+	private boolean needResume;
+	
+	private void stopPlayer() {
+		if (mVideoView != null)
+			mVideoView.pause();
+	}
+	
+	private void startPlayer() {
+		if (mVideoView != null)
+			mVideoView.start();
+	}
+
+	private boolean isPlaying() {
+		return mVideoView != null && mVideoView.isPlaying();
+	}
 
 	@Override
 	public void exit() {
@@ -114,5 +168,47 @@ public class VitamioPlayer extends BasePlayer {
 		} catch (Exception e) {
 			finish();
 		}
+	}
+
+	@Override
+	public void setVideoScale(int type) {
+		switch (type) {
+		case SCREEN_FULL:
+			Logger.i(TAG, isDebug, "Vitamio : setVideoViewFullScreen");
+			mVideoView.setVideoLayout(VideoView.VIDEO_LAYOUT_ZOOM, 0);
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+			break;
+			
+		case SCREEN_DEFAULT:
+			Logger.i(TAG, isDebug, "Vitamio : setVideoViewNormal");
+			int videoWidth = mVideoView.getVideoWidth();
+			int videoHeight = mVideoView.getVideoHeight();
+			int mWidth = mScreenWidth;
+			int mHeight = mScreenHeight;
+			
+			if (videoWidth > 0 && videoHeight > 0) {
+				if (videoWidth * mHeight > mWidth * videoHeight) {
+					
+					mHeight = mWidth * videoHeight / videoWidth;
+				} else if (videoWidth * mHeight < mWidth * videoHeight) {
+					
+					mWidth = mHeight * videoWidth / videoHeight;
+				} else {
+					
+				}
+			}
+			mVideoView.setVideoLayout(VideoView.VIDEO_LAYOUT_SCALE, 0);
+			// mVideoView.setVideoScale(mWidth, mHeight);
+			
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+			break;
+
+		}
+	}
+
+	@Override
+	public boolean isSystemPlay() {
+		return false;
 	}
 }

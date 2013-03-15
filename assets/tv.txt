@@ -7,58 +7,11 @@
 									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
 									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
 									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
-									,{"title":"CZTV Changzhou movie","url":"mms://vod1.cztv.tv/cztv03","image":""}
-									,{"title":"CZTV Changzhou news","url":"mms://vod1.cztv.tv/cztv01","image":""}
+									,{"title":"本港台","url":"rtsp://116.199.127.68/bengang","image":""}
+									,{"title":"本港国际","url":"rtsp://116.199.127.68/guoji","image":""}
+									,{"title":"星空卫视","url":"rtsp://116.199.127.68/xingkong","image":""}
+									,{"title":"凤凰卫视资讯台","url":"http://live.3gv.ifeng.com/live/1256?file=livestream","image":""}
+									,{"title":"凤凰卫视中文台","url":"http://live.3gv.ifeng.com/live/2256","image":""}
 								] 
 	
 			},{"videoNamePerson":"FuJian",
